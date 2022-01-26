@@ -1,3 +1,69 @@
+# THIS IS MY OWN FORK! ONLY THING THAT SHOULD STILL WORK IS THE BUILDING PART!
+# NONE OF THE LINKS BELOW "ORIGINAL README" WILL WORK RIGHT!
+# THIS ALSO IS A PERSONAL FORK! NO SUPPORT IS OFFERED NOR ARE PRS!
+
+
+## My Changes
+None Yet
+
+
+## TODO
+- [ ] Port over Plus Messenger's feature of showing online stats in chat(the green dots on PFPs in chats)
+- [ ] Find ways to make it more light weight
+
+
+## Building
+
+**NOTE: Building on Windows is, unfortunately, not supported.
+Consider using a Linux VM or dual booting.**
+![WindowsSupport](/tgfoss-build-under-win.gif?raw=true)
+
+**Important:**
+
+1. You need the Android NDK, Go(Golang) and [Ninja](https://ninja-build.org/) to build the apk.
+
+2. Don't forget to include the submodules when you clone:
+      - `git clone --recursive https://github.com/LakesideMiners/Telegram-FOSS.git`
+
+3. Build native FFmpeg and BoringSSL dependencies:
+      - Go to the `TMessagesProj/jni` folder and execute the following (define the paths to your NDK and Ninja):
+
+      ```
+      export NDK=[PATH_TO_NDK]
+      export NINJA_PATH=[PATH_TO_NINJA]
+      ./build_ffmpeg_clang.sh
+      ./patch_ffmpeg.sh
+      ./patch_boringssl.sh
+      ./build_boringssl.sh
+      ./build_libvpx_clang.sh
+      ```
+
+4. If you want to publish a modified version of Telegram:
+      - You should get **your own API key** here: https://core.telegram.org/api/obtaining_api_id and create a file called `API_KEYS` in the source root directory.
+        The contents should look like this:
+        ```
+        APP_ID = 12345
+        APP_HASH = aaaaaaaabbbbbbccccccfffffff001122
+        ```
+      - Do not use the name Telegram and the standard logo (white paper plane in a blue circle) for your app — or make sure your users understand that it is unofficial
+      - Take good care of your users' data and privacy
+      - **Please remember to publish your code too in order to comply with the licenses**
+
+The project can be built with Android Studio or from the command line with gradle:
+
+`./gradlew assembleAfatRelease`
+
+
+
+
+
+
+
+
+
+
+
+# ORGINAL README
 [![Releases](https://img.shields.io/github/release/Telegram-FOSS-Team/Telegram-FOSS.svg)](https://github.com/Telegram-FOSS-Team/Telegram-FOSS/releases/latest)
 [![Discussions](https://img.shields.io/badge/Offtopics-Telegram-blue.svg)](https://t.me/tfossofftop)
 
@@ -101,7 +167,7 @@ Consider using a Linux VM or dual booting.**
 1. You need the Android NDK, Go(Golang) and [Ninja](https://ninja-build.org/) to build the apk.
 
 2. Don't forget to include the submodules when you clone:
-      - `git clone --recursive https://github.com/Telegram-FOSS-Team/Telegram-FOSS.git`
+      - `git clone --recursive https://github.com/LakesideMiners/Telegram-FOSS.git`
 
 3. Build native FFmpeg and BoringSSL dependencies:
       - Go to the `TMessagesProj/jni` folder and execute the following (define the paths to your NDK and Ninja):
